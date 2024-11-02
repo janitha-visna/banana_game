@@ -1,0 +1,58 @@
+@use "../../responsive.scss";
+
+.homepage {
+  display: flex;
+  height: 100vh;
+}
+
+.left {
+  flex: 2;
+  display: flex;
+  height: 100%;
+  background-color: rgb(77, 68, 85);
+  margin-right: 20px;
+  flex-direction: column;
+}
+
+.left-top {
+  background-color: #f0a500; /* First color for top section */
+  flex: 1; /* Allows it to take half of the left section */
+}
+
+.left-bottom {
+  background-color: #4caf50; /* Second color for bottom section */
+  flex: 1; /* Allows it to take half of the left section */
+}
+
+.right {
+  flex: 2;
+  height: 100%;
+  background-color: rgb(103, 92, 204);
+  flex-direction: column;
+  justify-content: center;
+
+
+  .wrapper {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-bottom: 10px;
+  overflow: hidden; /* Prevents overflow outside the wrapper */
+}
+}
+
+.centered-button {
+  padding: 20px 40px;
+  font-size: 1.5rem;
+  color: white;
+  background-color: rgb(85, 85, 85); // Adjust color as needed
+  border: none;
+  border-radius: 30px; // Large rounded corners
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgb(70, 70, 70); // Hover color
+  }
+}
