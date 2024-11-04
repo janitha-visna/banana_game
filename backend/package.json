@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "docs": "jsdoc src -d docs"
   },
   "keywords": [],
   "author": "",
@@ -20,5 +21,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.0",
     "nodemon": "^3.1.7"
+  },
+  "devDependencies": {
+    "jsdoc": "^4.0.4"
   }
 }
