@@ -1,0 +1,95 @@
+.singleplayer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+  max-height: 100vh;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+/* Style for the info section */
+.info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between; /* Positions left and right at opposite ends */
+  background-color: #f9f9f9; /* Light background for the info section */
+}
+
+.left {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .score {
+    background-color: #ffcccc;
+  }
+  .time {
+    background-color: #ccffcc;
+  }
+}
+.right {
+  background-color: #ccffcc; /* Light green background */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .chances {
+    background-color: #ffcccc;
+  }
+  .round {
+    background-color: #ffcccc;
+  }
+}
+
+/* Other sections */
+.question {
+  flex: 3;
+  background-color: #cce5ff; /* Light blue background for the question section */
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+
+  .question-container {
+    height: 100%; /* Fills the full height of .question */
+    max-width: 100%; /* Ensures it doesn’t exceed the width of .question */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      max-width: 100%; /* Ensures image fits within container */
+      max-height: 100%; /* Ensures image fits within container height */
+      object-fit: contain; /* Keeps image aspect ratio within the container */
+    }
+  }
+}
+
+.solution {
+  flex: 2;
+  background-color: #fff5cc; /* Light yellow background for the solution section */
+  
+
+  .number-buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 buttons per row */
+    gap: 10px;
+    margin-bottom: 20px;
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #c6e7aa;
+      }
+    }
+  }
+}
