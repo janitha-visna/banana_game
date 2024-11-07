@@ -4,7 +4,11 @@ import jwt from "jsonwebtoken";
 import User from "../models/user.model.js"; // Import the User model
 
 /**
- * @function register
+
+
+ * @function
+
+
  * @description Registers a new user by hashing the password and saving the user in the database.
  * @param {Object} req - The request object containing user data.
  * @param {Object} res - The response object to send back the results.
@@ -45,39 +49,31 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   const { username, password } = req.body;
 
-  // Log the received username and password (avoid logging passwords in production)
-  console.log("Received login request with username:", username);
+
+
 
   try {
     // CHECK IF THE USER EXISTS
     const user = await User.findOne({ username });
 
-    // Log the result of the user search
-    console.log("User found:", user);
 
-    if (!user) {
-      console.log("Invalid Credentials: User not found");
-      return res.status(400).json({ message: "Invalid Credentials!" });
-    }
+    if (!user) return res.status(400).json({ message: "Invalid Credentials!" });
+
 
     // CHECK IF THE PASSWORD IS CORRECT
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
-    // Log password validation result
-    console.log("Password valid:", isPasswordValid);
 
-    if (!isPasswordValid) {
-      console.log("Invalid Credentials: Password does not match");
+    if (!isPasswordValid)
       return res.status(400).json({ message: "Invalid Credentials!" });
-    }
+
 
     // GENERATE JWT TOKEN
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY, {
       expiresIn: "7d",
     });
 
-    // Log the generated token (avoid logging sensitive information in production)
-    console.log("Generated token for user:", user._id);
+
 
     res
       .cookie("token", token, {
@@ -90,7 +86,9 @@ export const login = async (req, res) => {
         user: { id: user._id, username: user.username },
       });
   } catch (err) {
-    console.error("Login error:", err);
+
+    console.error(err);
+
     res.status(500).json({ message: "Failed to login!" });
   }
 };
