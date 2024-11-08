@@ -6,13 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-
-    
     "dev": "nodemon src/app.js",
     "docs": "jsdoc -c jsdoc.json",
     "start:ninja": "console-ninja node --env-file .env --watch app.js"
-    
-
     
   },
   "keywords": [],
@@ -29,11 +25,7 @@
     "nodemon": "^3.1.7"
   },
   "devDependencies": {
-
-    
     "console-ninja": "^1.0.0",
-
-    
     "jsdoc": "^4.0.4"
   }
 }
