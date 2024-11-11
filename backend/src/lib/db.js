@@ -18,3 +18,5 @@ const connectDB = async () => {
 };
 
 export default connectDB;
+
+export const db = () => client.db("your_db_name"); // Replace with your actual database name

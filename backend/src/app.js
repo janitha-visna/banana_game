@@ -3,6 +3,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import connectDB from "./lib/db.js"; // Import the DB connection
 import authRoute from "./routes/auth.route.js";
+import userscore from "./routes/user.route.js"
 // ... other imports
 
 /**
@@ -21,6 +22,7 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRoute);
 // ... other routes
+app.use("/add-score",userscore);
 
 app.listen(8800, () => {
   console.log("Server is running!");
