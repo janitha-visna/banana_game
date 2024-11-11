@@ -1,7 +1,7 @@
 @import "../../responsive.scss";
 
 .layout {
-  height: 100vh;
+  height: 95vh;
   max-width: 1366px;
   margin-left: auto;
   margin-right: auto;
@@ -10,6 +10,8 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+
+  
 
   @include lg {
     // background-color: rgb(247, 210, 196);
@@ -30,4 +32,12 @@
     // flex: 1;
     height: calc(100vh - 100px);
   }
+
 }
+
+@media(min-height:907px){
+  .layout{
+    height: 98vh;
+  }
+}
+
