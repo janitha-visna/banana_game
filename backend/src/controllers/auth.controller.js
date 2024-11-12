@@ -56,24 +56,23 @@ export const login = async (req, res) => {
     // CHECK IF THE USER EXISTS
     const user = await User.findOne({ username });
 
-
     if (!user) return res.status(400).json({ message: "Invalid Credentials!" });
-
 
     // CHECK IF THE PASSWORD IS CORRECT
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
-
     if (!isPasswordValid)
       return res.status(400).json({ message: "Invalid Credentials!" });
 
-
     // GENERATE JWT TOKEN
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY, {
+    const token = jwt.sign({ id: user.username }, process.env.JWT_SECRET_KEY, {
       expiresIn: "7d",
     });
 
-
+    // DECODE AND LOG THE TOKEN
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    console.log("Decoded Token:", decodedToken);
+    console.log(token);
 
     res
       .cookie("token", token, {
