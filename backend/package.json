@@ -9,7 +9,6 @@
     "dev": "nodemon src/app.js",
     "docs": "jsdoc -c jsdoc.json",
     "start:ninja": "console-ninja node --env-file .env --watch app.js"
-    
   },
   "keywords": [],
   "author": "",
@@ -22,7 +21,8 @@
     "express": "^4.21.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.0",
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.7",
+    "socket.io": "^4.8.1"
   },
   "devDependencies": {
     "console-ninja": "^1.0.0",
