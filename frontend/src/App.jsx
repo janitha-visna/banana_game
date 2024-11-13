@@ -9,6 +9,7 @@ import Game from "./components/singleplayer/Singleplayer";
 
 import Selectoption from "./components/options/selectoptions";
 import Singleplayer from "./components/singleplayer/Singleplayer";
+import Scoketboard from "./components/scoket/scoketboard";
 
 
 
@@ -38,6 +39,10 @@ function App() {
           path: "/selectoption",
           element: <Selectoption />,
         },
+        {
+          path:"/socket",
+          element:<Scoketboard/>
+        }
         
       ],
     },
