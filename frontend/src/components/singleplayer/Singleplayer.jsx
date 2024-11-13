@@ -37,8 +37,8 @@ const Singleplayer = () => {
     handleSubmit(number);
   };
 
-  const handleSubmit = () => {
-    if (parseInt(userAnswer) === solution) {
+  const handleSubmit = (number) => {
+    if (parseInt(number) === solution) {
       setRoundsLeft((prevRounds) => prevRounds - 1);
       fetchQuestion();
     } else {
@@ -46,6 +46,7 @@ const Singleplayer = () => {
     }
     setUserAnswer("");
   };
+
 
   return (
     <div className="singleplayer">
