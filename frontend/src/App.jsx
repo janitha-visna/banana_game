@@ -9,9 +9,6 @@ import Game from "./components/singleplayer/Singleplayer";
 
 import Selectoption from "./components/options/selectoptions";
 import Singleplayer from "./components/singleplayer/Singleplayer";
-import Scoketboard from "./components/scoket/scoketboard";
-
-
 
 function App() {
   const router = createBrowserRouter([
@@ -33,17 +30,12 @@ function App() {
         },
         {
           path: "/singleplayer",
-          element: <Singleplayer/>,
+          element: <Singleplayer />,
         },
         {
           path: "/selectoption",
           element: <Selectoption />,
         },
-        {
-          path:"/socket",
-          element:<Scoketboard/>
-        }
-        
       ],
     },
   ]);
