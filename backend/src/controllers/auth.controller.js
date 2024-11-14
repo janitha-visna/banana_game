@@ -55,6 +55,7 @@ export const login = async (req, res) => {
   try {
     // CHECK IF THE USER EXISTS
     const user = await User.findOne({ username });
+    console.log(user);
 
     if (!user) return res.status(400).json({ message: "Invalid Credentials!" });
 
@@ -65,9 +66,13 @@ export const login = async (req, res) => {
       return res.status(400).json({ message: "Invalid Credentials!" });
 
     // GENERATE JWT TOKEN
-    const token = jwt.sign({ id: user.username }, process.env.JWT_SECRET_KEY, {
-      expiresIn: "7d",
-    });
+    const token = jwt.sign(
+      { id: user._id, username: user.username },
+      process.env.JWT_SECRET_KEY,
+      {
+        expiresIn: "7d",
+      }
+    );
 
     // DECODE AND LOG THE TOKEN
     const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
