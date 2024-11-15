@@ -1,3 +1,42 @@
+.notification-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 1000;
+  font-weight: bold;
+  color: white;
+}
+
+.notification-banner.success {
+  background-color: #4caf50; /* Green for success */
+}
+
+.notification-banner.error {
+  background-color: #f44336; /* Red for errors */
+}
+
+.dismiss-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.dismiss-btn:hover {
+  color: #ddd;
+}
+
+.register .formContainer {
+  margin-top: 60px; /* Push the form down so it's not covered by the banner */
+}
+
+
 .register {
   display: flex; /* Enables flexbox on .login */
   align-items: center; /* Centers .formContainer vertically */
