@@ -1,0 +1,74 @@
+.register {
+  display: flex; /* Enables flexbox on .login */
+  align-items: center; /* Centers .formContainer vertically */
+  justify-content: center; /* Centers .formContainer horizontally */
+  height: 100%;
+  width: 100%;
+  background-image: url("/assets/pink1.png");
+  background-size: cover; /* Ensures the image covers the full area */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents tiling */
+  /* Adds margin-like space within the container */
+  box-sizing: border-box;
+  //background-color: #333;
+  position: absolute;
+ 
+    .formContainer {
+        width: 400px;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        margin: 20px;
+        border: 1px solid white; /* Keeps the thin white border */
+        border-radius: 10px;
+        background-color: #2e2e2e; /* Optional background color for contrast */
+ 
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+ 
+        h1 {
+            color: aliceblue;
+          }
+ 
+        input {
+          padding: 20px;
+          border: 1px solid rgb(240, 236, 235);
+          border-radius: 5px;
+        }
+ 
+        button {
+            padding: 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgb(35, 124, 160);
+            border: 1px solid rgb(246, 239, 237);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+ 
+          &:disabled {
+            background-color: #d5570e;
+            cursor: not-allowed;
+          }
+        }
+ 
+        span {
+          color: rgba(255, 0, 0, 0.591);
+        }
+ 
+        a {
+          font-size: 14px;
+          color: rgb(235, 226, 226);
+          border-bottom: 1px solid gray;
+          width: max-content;
+        }
+      }
+    }
+ 
+ 
+  }
+ 
