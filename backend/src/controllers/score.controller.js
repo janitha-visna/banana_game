@@ -1,5 +1,6 @@
 import { addUserScore } from "../services/userscore.service.js";
 import scoreEvents  from "../events/scoreboard.events.js"
+import { getUserScoresByUserId } from "../services/userscore.service.js";
 
 
 export async function submitscore(req,res) {
@@ -19,3 +20,16 @@ export async function submitscore(req,res) {
     }
     
 }
+
+export const getUserScores = async (req, res) => {
+  const { userId } = req.query; // Retrieve userId from query parameters
+
+  try {
+    // Use the service function to get user scores
+    const userScores = await getUserScoresByUserId(userId);
+    res.status(200).json(userScores);
+  } catch (error) {
+    console.error("Error fetching user scores:", error);
+    res.status(500).json({ message: "Failed to retrieve user scores" });
+  }
+};

@@ -7,6 +7,7 @@ import userscore from "./routes/user.route.js"
 import { Server } from 'socket.io';  // Socket.io import
 import http from 'http'; // HTTP server import
 import { Scoreboard } from "./models/scoreboard.model.js";
+import { getUserScores } from "./controllers/score.controller.js";
 // ... other imports
 
 /**
@@ -26,6 +27,7 @@ app.use(cookieParser());
 app.use("/api/auth", authRoute);
 // ... other routes
 app.use("/add-score",userscore);
+
 
 // Create HTTP server for both Express and Socket.io
 const server = http.createServer(app);
