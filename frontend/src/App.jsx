@@ -10,6 +10,8 @@ import Game from "./components/singleplayer/Singleplayer";
 import Selectoption from "./components/options/selectoptions";
 import Singleplayer from "./components/singleplayer/Singleplayer";
 import Records from "./components/Userrecords/User.records";
+import Login from "./routes/Login/Login";
+import Register from "./routes/Register/Register";
 
 function App() {
   const router = createBrowserRouter([
@@ -47,6 +49,14 @@ function App() {
       path: "/records", // New parent path for Records
       element: <Records />, // Render Records at the /records path
     },
+    {
+      path: "/login",
+      element:<Login/>
+    },
+    {
+      path:"/register",
+      element:<Register/>
+    }
   ]);
 
   return <RouterProvider router={router} />;
