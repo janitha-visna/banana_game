@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import "./singleplayer.scss";
+import { useAuth } from "../../context/AuthContext";
 
 const Singleplayer = () => {
   const location = useLocation();
@@ -9,6 +10,12 @@ const Singleplayer = () => {
     selectedRounds: 1,
     selectedChances: 1,
   };
+
+  const { user } = useAuth();
+  console.log(user);
+  const { username, id: userId } = user || {}; // Extract username and userId
+  console.log(username);
+  console.log(userId);
 
   const [questionImage, setQuestionImage] = useState("");
   const [solution, setSolution] = useState(null);
@@ -79,14 +86,17 @@ const Singleplayer = () => {
   // Submit score function
   const submitScore = async (finalScore) => {
     const scoreData = {
-      userId: "741", // Hardcoded userId for now
-      username: "amal", // Hardcoded username
+      userId: userId || "unknown", // Hardcoded userId for now
+      username: username || "Guest", // Hardcoded username
       score: finalScore,
       date: new Date().toISOString(), // Current date and time in ISO format
     };
 
     try {
-      await axios.post("http://localhost:8800/add-score/add-score", scoreData);
+      // Make the POST request with cookies automatically included
+      await axios.post("http://localhost:8800/add-score/add-score", scoreData, {
+        withCredentials: true, // Allow sending cookies (including httpOnly)
+      });
       console.log("Score submitted successfully:", scoreData);
     } catch (error) {
       console.error("Error submitting score:", error);
