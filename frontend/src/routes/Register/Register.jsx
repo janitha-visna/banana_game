@@ -3,6 +3,7 @@ import axios from "axios";
 import "./register.scss";
 import { Link } from "react-router-dom";
 
+
 function Register() {
   const [formData, setFormData] = useState({
     username: "",

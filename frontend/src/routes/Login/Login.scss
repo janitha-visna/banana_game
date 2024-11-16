@@ -1,47 +1,48 @@
+html, body {
+  overflow: hidden;  /* Disable both horizontal and vertical scrolling */
+  height: 100%;      /* Ensure the height is 100% to avoid unintended scrolling */
+}
+
 .login {
-  display: flex; /* Enables flexbox on .login */
-  align-items: center; /* Centers .formContainer vertically */
-  justify-content: center; /* Centers .formContainer horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
   background-image: url("/assets/pink1.png");
-  background-size: cover; /* Ensures the image covers the full area */
-  background-position: center; /* Centers the image */
-  background-repeat: no-repeat; /* Prevents tiling */
-  /* Adds margin-like space within the container */
-  box-sizing: border-box;
-  //background-color: #333;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: absolute;
 
- 
   .formContainer {
-   
     width: 400px;
     height: auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
     margin: 20px;
-    border: 1px solid white; /* Keeps the thin white border */
+    border: 1px solid white;
     border-radius: 10px;
-    background-color: #2e2e2e; /* Optional background color for contrast */
- 
+    background-color: #2e2e2e;
+
     form {
       display: flex;
       flex-direction: column;
       gap: 20px;
- 
+
       h1 {
         color: aliceblue;
       }
- 
+
       input {
         padding: 20px;
         border: 1px solid rgb(240, 236, 235);
         border-radius: 5px;
       }
- 
+
       button {
         padding: 20px;
         border-radius: 5px;
@@ -51,23 +52,41 @@
         color: white;
         font-weight: bold;
         cursor: pointer;
- 
+
         &:disabled {
           background-color: #d5570e;
           cursor: not-allowed;
         }
       }
- 
-      span {
-        color: rgba(255, 0, 0, 0.591);
-      }
- 
+
       a {
         font-size: 14px;
         color: rgb(235, 226, 226);
         border-bottom: 1px solid gray;
         width: max-content;
       }
+    }
+  }
+
+  .message {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    z-index: 10;
+
+    &.success {
+      background-color: #4caf50; /* Green for success */
+      color: white;
+    }
+
+    &.error {
+      background-color: #f44336; /* Red for error */
+      color: white;
     }
   }
 }

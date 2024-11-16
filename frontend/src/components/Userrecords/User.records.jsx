@@ -6,7 +6,10 @@ function Records() {
 
   useEffect(() => {
     // Fetch the data from the API
-    fetch("http://localhost:8800/add-score/user-score?userId=741")
+    fetch("http://localhost:8800/add-score/user-score?userId=741", {
+      method: "GET", // Ensure you are making a GET request
+      credentials: "include", // Include cookies with the request
+    })
       .then((response) => response.json())
       .then((data) => setScores(data))
       .catch((error) => console.error("Error fetching data:", error));

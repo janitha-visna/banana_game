@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.post("/add-score",verifyToken, submitscore);
 
-router.get("/user-score", getUserScores);
+router.get("/user-score",verifyToken, getUserScores);
 
 
 export default router;
