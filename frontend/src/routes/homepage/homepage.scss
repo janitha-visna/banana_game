@@ -15,19 +15,19 @@
 }
 
 .left-top {
-  background-color: #f0a500; /* First color for top section */
+  //background-color: #f0a500; /* First color for top section */
   flex: 1; /* Allows it to take half of the left section */
 }
 
 .left-bottom {
-  background-color: #4caf50; /* Second color for bottom section */
+  //background-color: #4caf50; /* Second color for bottom section */
   flex: 1; /* Allows it to take half of the left section */
 }
 
 .right {
   flex: 2;
   height: 100%;
-  background-color: rgb(103, 92, 204);
+  //background-color: rgb(103, 92, 204);
   flex-direction: column;
   justify-content: center;
 

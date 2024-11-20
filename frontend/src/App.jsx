@@ -37,7 +37,7 @@ function App() {
         },
         {
           path: "/selectoption",
-          element: <Selectoption />,
+          element: <Selectoption/>,
         },
         {
           path:"/records1",

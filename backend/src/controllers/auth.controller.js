@@ -1,32 +1,16 @@
-// controllers/auth.controller.js
-import bcrypt from "bcryptjs"
-import jwt from "jsonwebtoken";
-import User from "../models/user.model.js"; // Import the User model
+import { registerUser,loginUser } from "../services/auth.service.js";
+
+
 
 /**
-
-
  * @function
-
-
- * @description Registers a new user by hashing the password and saving the user in the database.
- * @param {Object} req - The request object containing user data.
- * @param {Object} res - The response object to send back the results.
- * @returns {void}
+ * @description Registers a new user by delegating logic to the service layer.
  */
-
-
-// Register function
 export const register = async (req, res) => {
-  const { username, email, password } = req.body;
-
   try {
-    // HASH THE PASSWORD
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const { username, email, password } = req.body;
 
-    // CREATE A NEW USER AND SAVE TO DB
-    const newUser = new User({ username, email, password: hashedPassword });
-    await newUser.save();
+    await registerUser(username, email, password); // Call service function
 
     res.status(201).json({ message: "User created successfully" });
   } catch (err) {
@@ -35,49 +19,15 @@ export const register = async (req, res) => {
   }
 };
 
-
-
 /**
  * @function
- * @description Logs in a user by verifying the credentials and generating a JWT token.
- * @param {Object} req - The request object containing username and password.
- * @param {Object} res - The response object to send back the results.
- * @returns {void}
+ * @description Logs in a user by delegating logic to the service layer.
  */
-
-// Login function
 export const login = async (req, res) => {
-  const { username, password } = req.body;
-
-
-
-
   try {
-    // CHECK IF THE USER EXISTS
-    const user = await User.findOne({ username });
-    console.log(user);
+    const { username, password } = req.body;
 
-    if (!user) return res.status(400).json({ message: "Invalid Credentials!" });
-
-    // CHECK IF THE PASSWORD IS CORRECT
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-
-    if (!isPasswordValid)
-      return res.status(400).json({ message: "Invalid Credentials!" });
-
-    // GENERATE JWT TOKEN
-    const token = jwt.sign(
-      { id: user._id, username: user.username },
-      process.env.JWT_SECRET_KEY,
-      {
-        expiresIn: "7d",
-      }
-    );
-
-    // DECODE AND LOG THE TOKEN
-    const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
-    console.log("Decoded Token:", decodedToken);
-    console.log(token);
+    const { token, user } = await loginUser(username, password); // Call service function
 
     res
       .cookie("token", token, {
@@ -87,26 +37,18 @@ export const login = async (req, res) => {
       .status(200)
       .json({
         message: "Login Successful",
-        user: { id: user._id, username: user.username },
+        user,
       });
   } catch (err) {
-
     console.error(err);
-
     res.status(500).json({ message: "Failed to login!" });
   }
 };
 
-
 /**
  * @function
  * @description Logs out a user by clearing the JWT cookie.
- * @param {Object} req - The request object.
- * @param {Object} res - The response object to send back the results.
- * @returns {void}
  */
-
-// Logout function
 export const logout = (req, res) => {
   res.clearCookie("token").status(200).json({ message: "Logout Successful" });
 };
