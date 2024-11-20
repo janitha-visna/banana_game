@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-import "./singleplayer.scss";
+import "./singleplayer.module.scss";
 import { useAuth } from "../../context/AuthContext";
 
 const Singleplayer = () => {

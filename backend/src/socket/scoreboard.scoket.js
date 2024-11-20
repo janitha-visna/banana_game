@@ -10,6 +10,7 @@ export const handleSocketConnection = (socket) => {
     try {
       const scoreboard = await Scoreboard.find().sort({ score: -1 });
       socket.emit("scoreboardData", scoreboard); // Send updated scoreboard to client
+      console.log("foramt",scoreboard);
     } catch (error) {
       console.error("Error fetching scoreboard:", error);
       socket.emit("error", "Failed to fetch scoreboard");

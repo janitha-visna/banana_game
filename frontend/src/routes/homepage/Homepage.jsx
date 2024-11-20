@@ -1,5 +1,5 @@
 import Leaderboard from "../../components/leaderboard/Leaderbord";
-import "./homepage.scss";
+import "./homepage.module.scss";
 import leaderboardData from "../../components/leaderboard/leaderboardData"
 
 function Homepage() {
@@ -15,7 +15,7 @@ function Homepage() {
       </div>
       <div className="right">
         <div className="wrapper">
-          <Leaderboard data={leaderboardData} />
+          
         </div>
       </div>
     </div>

@@ -16,47 +16,41 @@ import Register from "./routes/Register/Register";
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/", // Root path
-      element: <Layout />, // Render Layout component at the root path
-      children: [
-        {
-          path: "/multiplayer",
-          element: <Multiplayer />,
-        },
-        {
-          path: "/homepage",
-          element: <Homepage />,
-        },
-        {
-          path: "/leaderboard",
-          element: <Leaderboard data={leaderboardData} />, // Pass leaderboardData as prop
-        },
-        {
-          path: "/singleplayer",
-          element: <Singleplayer />,
-        },
-        {
-          path: "/selectoption",
-          element: <Selectoption />,
-        },
-        {
-          path:"/records1",
-          element:<Records/>
-        }
-      ],
+      path: "/",
+      element: <Homepage />, // Homepage as the default route
     },
     {
-      path: "/records", // New parent path for Records
-      element: <Records />, // Render Records at the /records path
+      path: "/multiplayer",
+      element: <Multiplayer />,
+    },
+    {
+      path: "/leaderboard",
+      element: <Leaderboard data={leaderboardData} />,
+    },
+    {
+      path: "/singleplayer",
+      element: <Game />,
+    },
+    {
+      path: "/selectoption",
+      element: <Selectoption />,
+    },
+    {
+      path: "/records1",
+      element: <Records />,
+    },
+    {
+      path: "/records", // Separate records path if needed
+      element: <Records />,
     },
     {
       path: "/login",
-      element:<Login/>
+      element: <Login />,
     },
     {
-      path:"/register",
-      element:<Register/>
-    }
+      path: "/register",
+      element: <Register />,
+    },
   ]);
 
   return <RouterProvider router={router} />;
