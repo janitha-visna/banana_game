@@ -1,4 +1,4 @@
-@use "../../responsive.scss";
+
 
 /*	
 	Table Responsive
@@ -7,15 +7,6 @@
  */
 
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
-
-body {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 300;
-  line-height: 1.42em;
-  color: #a7a1ae;
-  background-color: #1f2739;
-}
 
 h1 {
   font-size: 3em;
