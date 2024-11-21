@@ -1,5 +1,5 @@
 import React from "react";
-import "./selectoptions.module.scss";
+import "./selectoptions.scss";
 import { useState } from "react";
 import Game from "../singleplayer/Singleplayer";
 import { useNavigate } from "react-router-dom";
@@ -27,8 +27,8 @@ const Selectoptions = () => {
 
   return (
     <div className="homepage">
-      <div className="left"></div>
-      <div className="right">
+      <div className="left_selectoptions"></div>
+      <div className="right_selectoptions">
         <div className="wrapper">
           <div className="settings-container">
             <h2>Select Rounds and Chances</h2>

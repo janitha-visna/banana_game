@@ -1,23 +1,15 @@
 import Leaderboard from "../../components/leaderboard/Leaderbord";
-import "./homepage.module.scss";
-import leaderboardData from "../../components/leaderboard/leaderboardData"
+import styles from "./homepage.module.css";
+import leaderboardData from "../../components/leaderboard/leaderboardData";
+import Login from "../Login/Login";
 
 function Homepage() {
   return (
-    <div className="homepage">
-      <div className="left">
-        <div className="left-top">
-          
-        </div>
-        <div className="left-bottom">
-
-        </div>
+    <div className={styles.homepage}>
+      <div className={styles.left}>
+        <Login />
       </div>
-      <div className="right">
-        <div className="wrapper">
-          
-        </div>
-      </div>
+      <div className={styles.right}></div>
     </div>
   );
 }

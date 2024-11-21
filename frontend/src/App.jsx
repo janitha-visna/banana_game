@@ -7,7 +7,7 @@ import Homepage from "./routes/homepage/Homepage";
 import Leaderboard from "./components/leaderboard/Leaderbord";
 import Game from "./components/singleplayer/Singleplayer";
 
-import Selectoption from "./components/options/selectoptions";
+import Selectoption from "./components/options/Selectoptions";
 import Singleplayer from "./components/singleplayer/Singleplayer";
 import Records from "./components/Userrecords/User.records";
 import Login from "./routes/Login/Login";

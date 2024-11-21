@@ -1,0 +1,22 @@
+.homepage {
+  display: flex;
+   /* Stack left and right sections vertically */
+  height: 100vh; /* Full height of the viewport */
+  
+}
+
+.left {
+   /* Style for the left section */
+  flex: 1; /* Make both sections take up equal space */
+  display: flex; /* Enable flexbox for content alignment within each section */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
+
+.right {
+   /* Style for the right section */
+  flex: 1; /* Make both sections take up equal space */
+  display: flex; /* Enable flexbox for content alignment within each section */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
