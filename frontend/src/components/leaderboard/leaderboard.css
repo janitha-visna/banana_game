@@ -1,13 +1,4 @@
 
-
-/*	
-	Table Responsive
-	===================
-	Author: https://github.com/pablorgarcia
- */
-
-
-
 h1 {
   font-size: 3em;
   font-weight: 300;
@@ -54,14 +45,18 @@ h2 a {
 }
 
 .container {
+  
   text-align: left;
-  overflow-y: auto;
-  width: 50%;
-  max-height: 300px;
+  overflow-y: auto; /* Enables vertical scrolling */
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+  width: 50%; /* Set a fixed width for the table */
+  max-height: 300px; /* Limit the height to allow scrolling */
   margin: 0 auto;
   display: table;
   border-collapse: collapse;
   padding: 0 0 8em 0;
+  position: relative; /* Ensures proper positioning for sticky header */
+
 }
 
 thead th {
@@ -71,6 +66,8 @@ thead th {
   color: #fb667a;
   z-index: 2;
 }
+
+
 
 .container td,
 .container th {
