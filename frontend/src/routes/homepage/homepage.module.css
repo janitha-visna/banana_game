@@ -1,22 +1,27 @@
 .homepage {
   display: flex;
-   /* Stack left and right sections vertically */
-  height: 100vh; /* Full height of the viewport */
-  
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  flex-direction: column; /* Stack divs vertically */
 }
 
-.left {
-   /* Style for the left section */
-  flex: 1; /* Make both sections take up equal space */
-  display: flex; /* Enable flexbox for content alignment within each section */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
+.box {
+  width: 200px;
+  height: 100px;
+  background-color: #4dc3fa;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 10px; /* Space between the boxes */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.right {
-   /* Style for the right section */
-  flex: 1; /* Make both sections take up equal space */
-  display: flex; /* Enable flexbox for content alignment within each section */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
+.box:hover {
+  background-color: #3a9ed7;
 }
