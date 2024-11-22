@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-import "./singleplayer.module.scss";
+import "./singleplayer.scss";
 import { useAuth } from "../../context/AuthContext";
 
 const Singleplayer = () => {
@@ -109,9 +109,7 @@ const Singleplayer = () => {
         <>
           <div className="info">
             <div className="left">
-              <div className="score">score</div>
               <div className="time">Time: {stopwatchTime} seconds</div>{" "}
-              {/* Display stopwatch time */}
             </div>
             <div className="right">
               <div className="chances">

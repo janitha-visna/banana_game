@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./records.module.css";
+import "./records.css";
 
 function Records() {
   const [scores, setScores] = useState([]);

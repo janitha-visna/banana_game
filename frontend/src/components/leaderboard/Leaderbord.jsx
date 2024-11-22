@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./leaderboard.module.scss";
+import "./leaderboard.css";
 import leaderboardData from "../leaderboard/leaderboardData.js";
 import io from "socket.io-client";
 
@@ -32,13 +32,20 @@ const Leaderboard = ({ data }) => {
   }, []);
   
   return (
-    <div className="leaderboard-container">
-      <table className="leaderboard-table">
+    <>
+      <h1>Score History</h1>
+      <table className="container">
         <thead>
           <tr>
-            <th>Rank</th>
-            <th>Name</th>
-            <th>Score</th>
+            <th>
+              <h1>Rank</h1>
+            </th>
+            <th>
+              <h1>Name</h1>
+            </th>
+            <th>
+              <h1>Score</h1>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -51,7 +58,7 @@ const Leaderboard = ({ data }) => {
           ))}
         </tbody>
       </table>
-    </div>
+    </>
   );
 };
 

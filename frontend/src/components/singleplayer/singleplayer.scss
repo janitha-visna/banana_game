@@ -3,8 +3,8 @@
   flex-direction: column;
   height: 100vh; /* Full viewport height */
   max-height: 100vh;
-  overflow-y: auto;
-  border: 1px solid #ddd;
+  overflow-y: hidden;
+
   width: 100%;
   margin: 0 auto;
   margin-bottom: 20px;
@@ -12,42 +12,45 @@
 
 /* Style for the info section */
 .info {
-  flex: 1;
-  display: flex;
-  justify-content: space-between; /* Positions left and right at opposite ends */
-  background-color: #f9f9f9; /* Light background for the info section */
+  display: flex; /* Enable Flexbox for horizontal alignment */
+  width: 100%; /* Make sure the container takes up full width */
 }
 
 .left {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex: 1; /* Take up 50% of the width */
+  
+  display: flex; /* Enable Flexbox */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  font-weight: bold;
+}
 
-  .score {
-    background-color: #ffcccc;
-  }
-  .time {
-    background-color: #ccffcc;
-  }
+.time {
+  margin: 5px 0; /* Optional: Adds space around the time element */
+  font-size: 2rem;
 }
 .right {
+  flex: 1;
   //background-color: #ccffcc; /* Light green background */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
   .chances {
-    background-color: #ffcccc;
+    margin: 5px;
+    font-size: 2rem;
   }
+
   .round {
-    background-color: #ffcccc;
+    margin: 5px;
+    font-size: 2rem;
   }
 }
 
 /* Other sections */
 .question {
   flex: 3;
-  background-color: #cce5ff; /* Light blue background for the question section */
+  //background-color: #cce5ff; /* Light blue background for the question section */
   padding: 20px;
   align-items: center;
   justify-content: center;
@@ -69,23 +72,27 @@
 
 .solution {
   flex: 2;
-  background-color: #fff5cc; /* Light yellow background for the solution section */
-  
+  display: flex; /* Enable Flexbox */
+  justify-content: center; /* Horizontally center content */
+  align-items: center; /* Vertically center content */
+  height: 100%; /* Ensure the container takes full height if needed */
 
   .number-buttons {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* 5 buttons per row */
     gap: 10px;
     margin-bottom: 20px;
+    max-width: 400px; /* Optional: Limit the width of the grid */
 
     button {
-      padding: 10px 20px;
-      font-size: 18px;
+      padding: 8px 16px; /* Reduced padding for smaller buttons */
+      font-size: 14px; /* Adjust font size */
       background-color: #f0f0f0;
       border: 1px solid #ccc;
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s;
+      width: 100%; /* Make the button fill the available grid cell */
 
       &:hover {
         background-color: #c6e7aa;

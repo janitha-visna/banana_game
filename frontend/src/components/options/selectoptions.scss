@@ -5,11 +5,11 @@
   height: 100vh;
 }
 
-.left {
+.left_selectoptions {
   flex: 2;
   display: flex;
   height: 100%;
-  background-color: rgb(77, 68, 85);
+  
   margin-right: 20px;
   flex-direction: column;
 }
@@ -24,7 +24,7 @@
   flex: 1; /* Allows it to take half of the left section */
 }
 
-.right {
+.right_selectoptions {
   flex: 2;
   height: 100%;
  // background-color: rgb(103, 92, 204);
@@ -63,9 +63,9 @@
   align-items: center;
   gap: 1rem;
   padding: 2rem;
-  border: 1px solid #ddd;
+  
   border-radius: 8px;
-  background-color: #f9f9f9;
+  
   width: 300px;
   margin: auto;
 }
@@ -83,11 +83,11 @@
   cursor: pointer;
   font-size: 1rem;
   color: #b87be0;
-  background-color: #f0a500;
+  background-color: #ffae00;
 }
 
 .button.selected {
-  background-color: #4CAF50;
+  background-color: #ffffff;
 }
 
 .start-button {
