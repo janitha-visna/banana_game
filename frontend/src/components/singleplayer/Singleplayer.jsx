@@ -3,6 +3,7 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import "./singleplayer.scss";
 import { useAuth } from "../../context/AuthContext";
+import { calculateFinalScore } from "../../utils/scoring";
 
 const Singleplayer = () => {
   const location = useLocation();
@@ -12,10 +13,8 @@ const Singleplayer = () => {
   };
 
   const { user } = useAuth();
-  console.log(user);
+
   const { username, id: userId } = user || {}; // Extract username and userId
-  console.log(username);
-  console.log(userId);
 
   const [questionImage, setQuestionImage] = useState("");
   const [solution, setSolution] = useState(null);
@@ -24,6 +23,8 @@ const Singleplayer = () => {
   const [chancesLeft, setChancesLeft] = useState(selectedChances);
   const [stopwatchTime, setStopwatchTime] = useState(0); // Stopwatch starting at 0 seconds
   const [score, setScore] = useState(0); // Score state
+
+  
 
   useEffect(() => {
     fetchQuestion();
@@ -55,13 +56,18 @@ const Singleplayer = () => {
   };
 
   const handleSubmit = (number) => {
-    if (parseInt(number) === solution) {
+    const isCorrect = parseInt(number) === solution;
+
+    if (isCorrect) {
       setRoundsLeft((prevRounds) => prevRounds - 1);
-      fetchQuestion();
     } else {
+      setRoundsLeft((prevRounds) => prevRounds - 1);
       setChancesLeft((prevChances) => prevChances - 1);
     }
+
+    // Render a new image regardless of correctness
     setUserAnswer("");
+    fetchQuestion(); // Fetch the next question
   };
 
   // Calculate score when game is over
@@ -71,15 +77,13 @@ const Singleplayer = () => {
     }
   }, [roundsLeft, chancesLeft]);
 
-  // Scoring logic
   const calculateScore = () => {
-    const baseScore = 1000;
-    const roundBonus = roundsLeft * 100; // Bonus for remaining rounds
-    const chanceBonus = chancesLeft * 50; // Bonus for remaining chances
-    const timePenalty = Math.floor(stopwatchTime / 2); // Penalty for time taken
-
-    const finalScore = baseScore + roundBonus + chanceBonus - timePenalty;
-    setScore(finalScore > 0 ? finalScore : 0); // Ensure score doesn’t go below 0
+    const finalScore = calculateFinalScore(
+      roundsLeft,
+      chancesLeft,
+      stopwatchTime
+    );
+    setScore(finalScore);
     submitScore(finalScore);
   };
 
