@@ -27,12 +27,12 @@ const Selectoptions = () => {
 
   return (
     <div className="homepage">
-      <div className="left_selectoptions"></div>
       <div className="right_selectoptions">
+        <div>
+          <h3>Select Rounds and Chances</h3>
+        </div>
         <div className="wrapper">
           <div className="settings-container">
-            <h2>Select Rounds and Chances</h2>
-
             {/* Rounds Selection */}
             <div className="option-group">
               <p>Rounds:</p>
