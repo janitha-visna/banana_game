@@ -1,4 +1,5 @@
 import { UserScore } from "../models/userscore.model.js";
+import { Scoreboard } from "../models/scoreboard.model.js";
 
 /**
  * Adds a user's score to the user_scores collection.
@@ -43,3 +44,14 @@ export const getUserScoresByUserId = async (userId) => {
   }
 };
 
+
+export const getAllScores = async () => {
+  try {
+    // Fetch scores sorted by 'score' in ascending order
+    const scores = await Scoreboard.find().sort({ rank: 1 });
+    return scores;
+  } catch (error) {
+    console.error("Error fetching scores from scoreboard:", error);
+    throw new Error("Failed to fetch scores");
+  }
+};
