@@ -24,8 +24,6 @@ const Singleplayer = () => {
   const [stopwatchTime, setStopwatchTime] = useState(0); // Stopwatch starting at 0 seconds
   const [score, setScore] = useState(0); // Score state
 
-  
-
   useEffect(() => {
     fetchQuestion();
 
@@ -111,11 +109,9 @@ const Singleplayer = () => {
     <div className="singleplayer">
       {roundsLeft > 0 && chancesLeft > 0 ? (
         <>
-          <div className="info">
-            <div className="left">
+          <div className="info-wrapper">
+            <div className="info">
               <div className="time">Time: {stopwatchTime} seconds</div>{" "}
-            </div>
-            <div className="right">
               <div className="chances">
                 <p>Chances left: {chancesLeft}</p>
               </div>

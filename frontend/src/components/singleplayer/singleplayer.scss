@@ -4,46 +4,35 @@
   height: 100vh; /* Full viewport height */
   max-height: 100vh;
   overflow-y: hidden;
-
   width: 100%;
   margin: 0 auto;
   margin-bottom: 20px;
 }
 
-/* Style for the info section */
-.info {
-  display: flex; /* Enable Flexbox for horizontal alignment */
-  width: 100%; /* Make sure the container takes up full width */
-}
-
-.left {
-  flex: 1; /* Take up 50% of the width */
-  
-  display: flex; /* Enable Flexbox */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-  font-weight: bold;
-}
-
-.time {
-  margin: 5px 0; /* Optional: Adds space around the time element */
-  font-size: 2rem;
-}
-.right {
-  flex: 1;
-  //background-color: #ccffcc; /* Light green background */
+.info-wrapper {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center; /* Center the entire flex container */
+  width: 100%;
 
-  .chances {
-    margin: 5px;
-    font-size: 2rem;
+  /* Style for the info section */
+  .info {
+    display: flex; /* Enable Flexbox for horizontal alignment */
+    width: 100%; /* Ensure the container takes up full width */
+
+    padding: 1rem; /* Optional: Add some padding if needed */
+    font-size: 1.8rem;
+    align-items: center; /* Center the items vertically */
+    justify-content: space-between;
   }
 
-  .round {
+  .round,
+  .chances,
+  .time {
     margin: 5px;
     font-size: 2rem;
+    font-weight: bold; /* Make the text bold */
+    color: #ffffff; /* Ensure text is white for visibility */
+    text-align: center; /* Ensure it's centered */
   }
 }
 
@@ -95,7 +84,7 @@
       width: 100%; /* Make the button fill the available grid cell */
 
       &:hover {
-        background-color: #c6e7aa;
+        background-color: #4dc3fa;
       }
     }
   }
