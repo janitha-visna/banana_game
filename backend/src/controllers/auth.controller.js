@@ -29,6 +29,8 @@ export const login = async (req, res) => {
 
     const { token, user } = await loginUser(username, password); // Call service function
 
+    console.log(token);
+
     res
       .cookie("token", token, {
         httpOnly: true,

@@ -8,14 +8,20 @@ import { UserScore } from "../models/userscore.model.js";
  */
 export async function addUserScore(userId, username, score, date = new Date()) {
   try {
+    // Ensure date is a valid Date object
+    const parsedDate = date instanceof Date ? date : new Date(date);
+
+    // Construct a new UserScore document
     const userScore = new UserScore({
       userId,
       username,
       score,
-      date: date instanceof Date ? date : new Date(date)
+      date: parsedDate,
     });
-    
+
+    // Save the score to the database
     await userScore.save();
+    console.log("User score saved successfully:", userScore);
   } catch (error) {
     console.error("Error adding user score:", error);
     throw new Error("Failed to add user score");
