@@ -88,8 +88,6 @@ const Singleplayer = () => {
   // Submit score function
   const submitScore = async (finalScore) => {
     const scoreData = {
-      userId: userId || "unknown", // Hardcoded userId for now
-      username: username || "Guest", // Hardcoded username
       score: finalScore,
       date: new Date().toISOString(), // Current date and time in ISO format
     };
@@ -137,10 +135,13 @@ const Singleplayer = () => {
           </div>
         </>
       ) : (
-        <p>
-          Game Over! {roundsLeft === 0 ? "No rounds left." : "No chances left."}
-          <p>Final Score: {score}</p> {/* Display final score at game over */}
-        </p>
+        <>
+          <p className="game-over">
+            Game Over!{" "}
+            {roundsLeft === 0 ? "No rounds left." : "No chances left."}
+          </p>
+          <p className="final-score">Final Score: {score}</p>
+        </>
       )}
     </div>
   );

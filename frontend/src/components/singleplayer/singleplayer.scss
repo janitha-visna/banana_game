@@ -89,3 +89,26 @@
     }
   }
 }
+
+.game-over, .final-score {
+  text-align: center; /* Centers the text horizontally */
+  font-weight: bold; /* Makes the text bold */
+  font-size: 2rem; /* Adjust size if necessary */
+}
+
+.singleplayer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Make sure it takes the full height of the viewport */
+  flex-direction: column; /* Stack the elements vertically */
+}
+
+.game-over {
+  color: #ff0000; /* Optional: Color for the Game Over message */
+}
+
+.final-score {
+  color: #00ff00; /* Optional: Color for the Final Score message */
+}
+
