@@ -31,10 +31,10 @@ export async function addUserScore(userId, username, score, date = new Date()) {
 // Service function to retrieve user scores
 export const getUserScoresByUserId = async (userId) => {
   try {
-    // Fetch scores for the specified userId, sorted by date in descending order
+    // Fetch scores for the authenticated user, sorted by date in descending order
     const userScores = await UserScore.find({ userId })
-      .select("score date") // Only include score and date fields
-      .sort({ date: -1 }); // Sort by date in descending order
+      .select("score date") // Include only necessary fields
+      .sort({ date: -1 }); // Sort by most recent first
 
     return userScores;
   } catch (error) {

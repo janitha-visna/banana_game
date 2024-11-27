@@ -29,14 +29,13 @@ export async function submitscore(req, res) {
 }
 
 export const getUserScores = async (req, res) => {
-  const { userId } = req.query; // Retrieve userId from query parameters
-
   try {
-    // Use the service function to get user scores
-    const userScores = await getUserScoresByUserId(userId);
-    res.status(200).json(userScores);
+    // Use the authenticated user ID from the middleware
+    const userScores = await getUserScoresByUserId(req.userId);
+
+    return res.status(200).json(userScores);
   } catch (error) {
     console.error("Error fetching user scores:", error);
-    res.status(500).json({ message: "Failed to retrieve user scores" });
+    return res.status(500).json({ message: "Failed to retrieve user scores" });
   }
 };
