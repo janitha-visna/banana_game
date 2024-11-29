@@ -6,7 +6,7 @@ import Multiplayer from "./routes/multiplayer/Multiplayer";
 import Homepage from "./routes/homepage/Homepage";
 import Leaderboard from "./components/leaderboard/Leaderbord";
 import Game from "./components/singleplayer/Singleplayer";
-
+import NotFound from "./routes/Notfound/Notfound";
 import Selectoption from "./components/options/Selectoptions";
 import Singleplayer from "./components/singleplayer/Singleplayer";
 import Records from "./components/Userrecords/User.records";
@@ -50,6 +50,11 @@ function App() {
     {
       path: "/register",
       element: <Register />,
+    },
+    //catch all route for unmatched paths
+    {
+      path: "*",
+      element: <NotFound />,
     },
   ]);
 

@@ -1,0 +1,38 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  text-align: center;
+  background-color: #1f2739; /* Light background */
+  color: #333; /* Text color */
+  font-family: Arial, sans-serif; /* Optional: Better font style */
+}
+
+.not-found h1 {
+  font-size: 3rem; /* Large title */
+  margin-bottom: 1rem;
+  color: #ff6f61; /* Highlight color for the title */
+}
+
+.not-found p {
+  font-size: 1.5rem; /* Subtext font size */
+  margin-bottom: 2rem;
+  color: rgb(255, 255, 255);
+}
+
+.not-found .home-link {
+  font-size: 1.2rem;
+  color: #007bff; /* Link color */
+  text-decoration: none;
+  border: 2px solid #007bff; /* Border for link */
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+}
+
+.not-found .home-link:hover {
+  background-color: #007bff;
+  color: white;
+}
