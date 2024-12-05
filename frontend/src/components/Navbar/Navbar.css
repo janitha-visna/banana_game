@@ -1,0 +1,63 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4dc3fa;
+  padding: 15px 50px; /* Increased padding for a larger navbar */
+  color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Slightly increased gap for better spacing */
+  margin-left: 100px;
+}
+
+.navbar-profile-image {
+  width: 60px; /* Increased avatar size */
+  height: 60px; /* Increased avatar size */
+  border-radius: 50%; /* Circular image */
+  object-fit: cover;
+  border: 3px solid white; /* Slightly thicker border for emphasis */
+}
+
+.navbar-username {
+  font-size: 20px; /* Increased font size */
+  font-weight: bold;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  margin-right: 100px;
+}
+
+.navbar-logout-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px; /* Slightly larger button */
+  font-size: 16px; /* Increased font size */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-logout-button:hover {
+  background-color: #d32f2f;
+}
+.navbar-avatar-clickable {
+  cursor: pointer; /* Change cursor to pointer when hovering */
+}
+
+.navbar-profile-image:hover {
+  opacity: 0.8; /* Slight transparency on hover for feedback */
+  transition: opacity 0.3s ease;
+}

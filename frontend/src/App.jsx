@@ -11,6 +11,7 @@ import Register from "./routes/Register/Register";
 import NotFound from "./components/Notfound/Notfound";
 import leaderboardData from "./components/leaderboard/leaderboardData";
 import Playgame from "./routes/Playgame/Playegame";
+import ImageUpload from "./components/imageupload/ImageUpload";
 
 const App = () => {
   const { RequireAuth } = useAuth(); // Access RequireAuth
@@ -58,6 +59,14 @@ const App = () => {
       element: (
         <RequireAuth>
           <Records />
+        </RequireAuth>
+      ),
+    },
+    {
+      path: "/upload",
+      element: (
+        <RequireAuth>
+          <ImageUpload />
         </RequireAuth>
       ),
     },
