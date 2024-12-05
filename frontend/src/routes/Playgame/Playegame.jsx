@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 import "./Playgame.css";
 import { useAuth } from "../../context/AuthContext";
+import Navbar from "../../components/Navbar/Navbar";
 
 function Playgame() {
   const navigate = useNavigate(); // Initialize navigate hook
@@ -40,23 +41,23 @@ function Playgame() {
     }
   };
 
-  return (
-    <div className="playgame">
-      <div className="left-buttons">
-        <button className="button" onClick={handleUserRecordsClick}>
-          User Records
-        </button>
-        <button className="button" onClick={handleScoreboard}>
-          Scoreboard
-        </button>
-      </div>
-      <div className="right-buttons">
-        <button className="button" onClick={handlePlayNowClick}>
-          Play Now
-        </button>
-        <button className="button" onClick={handleLogout}>
-          Logout
-        </button>
+ return (
+    <div>
+      <Navbar /> {/* Add the Navbar component */}
+      <div className="playgame">
+        <div className="left-buttons">
+          <button className="button" onClick={handleUserRecordsClick}>
+            User Records
+          </button>
+          <button className="button" onClick={handleScoreboard}>
+            Scoreboard
+          </button>
+        </div>
+        <div className="right-buttons">
+          <button className="button" onClick={handlePlayNowClick}>
+            Play Now
+          </button>
+        </div>
       </div>
     </div>
   );
