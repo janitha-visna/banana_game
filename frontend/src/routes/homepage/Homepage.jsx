@@ -18,11 +18,20 @@ function Homepage() {
         />
       </div>
       <div className={styles.content}>
+        <h1>Welcome to the Game !</h1>
+        <h2>
+          {" "}
+          This is a fun and interactive quiz game where players answer questions
+          to earn points.
+        </h2>
+        <h2>The game ends when your chances run out or the rounds is up.</h2>
+        <h3>You may need to create a user account to play.</h3>
+
         <div
           className={styles.box}
           onClick={() => handleClick("/login")} // Navigate to Component1
         >
-          Login In
+          Log In
         </div>
       </div>
     </div>
