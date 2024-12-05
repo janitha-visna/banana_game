@@ -1,7 +1,8 @@
 import "./login.scss";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
 import { useAuth } from "../../context/AuthContext";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -10,6 +11,7 @@ function Login() {
   const [messageType, setMessageType] = useState(""); // "success" or "error"
 
   const { login } = useAuth(); // Get the login function from AuthContext
+  const navigate = useNavigate(); // Initialize navigate hook
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -31,6 +33,9 @@ function Login() {
 
         // Save user data using AuthContext (no need to save token as it is in cookie)
         login(data.user);
+
+        // Navigate to the singleplayer route after login
+        navigate("/play");
 
         console.log("User saved to localStorage.");
         console.log("data object", data);

@@ -4,8 +4,20 @@ import { useLocation } from "react-router-dom";
 import "./singleplayer.scss";
 import { useAuth } from "../../context/AuthContext";
 import { calculateFinalScore } from "../../utils/scoring";
+import { useNavigate } from "react-router-dom";
 
 const Singleplayer = () => {
+
+  const navigate = useNavigate(); // Initialize navigate hook
+
+  const handleNavigateLogin = () => {
+    navigate("/play"); // Navigate to the login page
+  };
+
+  const handleNavigateSelectOption = () => {
+    navigate("/selectoption"); // Navigate to the select option page
+  };
+
   const location = useLocation();
   const { selectedRounds, selectedChances } = location.state || {
     selectedRounds: 1,
@@ -141,6 +153,17 @@ const Singleplayer = () => {
             {roundsLeft === 0 ? "No rounds left." : "No chances left."}
           </p>
           <p className="final-score">Final Score: {score}</p>
+          <div className="game-over-actions">
+            <button onClick={handleNavigateLogin} className="action-button">
+              Homapage
+            </button>
+            <button
+              onClick={handleNavigateSelectOption}
+              className="action-button"
+            >
+              Play Again
+            </button>
+          </div>
         </>
       )}
     </div>

@@ -76,8 +76,8 @@
     button {
       padding: 8px 16px; /* Reduced padding for smaller buttons */
       font-size: 14px; /* Adjust font size */
-      background-color: #f0f0f0;
-      border: 1px solid #ccc;
+      background-color: #000000;
+      border: 1px solid #2bff00;
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s;
@@ -110,5 +110,39 @@
 
 .final-score {
   color: #00ff00; /* Optional: Color for the Final Score message */
+}
+
+.game-over, .final-score {
+  text-align: center; /* Centers the text horizontally */
+  font-weight: bold; /* Makes the text bold */
+  font-size: 2rem; /* Adjust size if necessary */
+}
+
+.game-over-actions {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  gap: 20px; /* Space between buttons */
+  margin-top: 20px; /* Add some space above the buttons */
+}
+
+.action-button {
+  width: 200px;
+  height: 50px;
+  background-color: #4dc3fa;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 10px; /* Space between buttons */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none; /* Remove default button border */
+}
+
+.action-button:hover {
+  background-color: #3a9ed7;
 }
 

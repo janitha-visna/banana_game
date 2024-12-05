@@ -15,17 +15,20 @@ function Homepage() {
 
   return (
     <div className={styles.homepage}>
-      <div
-        className={styles.box}
-        onClick={() => handleClick("/selectoption")} // Navigate to Component1
-      >
-        Single Player
+      <div className={styles.imageContainer}>
+        <img
+          src="public/images/bananaimg.webp"
+          alt="Homepage Illustration"
+          className={styles.homepageImage}
+        />
       </div>
-      <div
-        className={styles.box}
-        onClick={() => handleClick("/component2")} // Navigate to Component2
-      >
-        Multi Player
+      <div className={styles.content}>
+        <div
+          className={styles.box}
+          onClick={() => handleClick("/login")} // Navigate to Component1
+        >
+          Login In
+        </div>
       </div>
     </div>
   );

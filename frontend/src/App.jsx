@@ -11,6 +11,7 @@ import Login from "./routes/Login/Login";
 import Register from "./routes/Register/Register";
 import NotFound from "./routes/Notfound/Notfound";
 import leaderboardData from "./components/leaderboard/leaderboardData";
+import Playgame from "./routes/Playgame/Playegame";
 
 // Debugging: Log components to ensure they are properly imported
 console.log("Homepage:", Homepage); // Should log the function/component definition
@@ -38,6 +39,10 @@ const App = () => {
     {
       path: "/leaderboard",
       element: <Leaderboard data={leaderboardData} />, // Public route
+    },
+    {
+      path:"/play",
+      element: <Playgame/>,
     },
     // Protected Routes
     {

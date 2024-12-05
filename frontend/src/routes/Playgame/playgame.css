@@ -1,0 +1,42 @@
+.playgame {
+  display: flex;
+  justify-content: space-between; /* Space between left and right sections */
+  align-items: center; /* Vertically center the content */
+  height: 100vh; /* Full viewport height */
+  padding: 20px; /* Add some padding around the container */
+}
+
+.left-buttons, .right-buttons {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 10px; /* Space between buttons */
+  justify-content: center; /* Center the buttons vertically within the container */
+  align-items: center; /* Center the buttons horizontally */
+  height: 100%; /* Make each section take full height of the container */
+  width: 50%; /* Divide the container into two equal parts */
+}
+
+.right-buttons {
+  align-items: center; /* Center the button horizontally in the right section */
+}
+
+.button {
+  width: 200px;
+  height: 100px;
+  background-color: #4dc3fa;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 10px; /* Space between buttons */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none; /* Remove default button border */
+}
+
+.button:hover {
+  background-color: #3a9ed7;
+}
