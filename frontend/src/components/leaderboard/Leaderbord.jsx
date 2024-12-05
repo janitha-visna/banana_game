@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./leaderboard.css";
-import leaderboardData from "../leaderboard/leaderboardData.js";
 import io from "socket.io-client";
 
 

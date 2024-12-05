@@ -1,10 +1,5 @@
-import Leaderboard from "../../components/leaderboard/Leaderbord";
 import styles from "./homepage.module.css";
-import leaderboardData from "../../components/leaderboard/leaderboardData";
-import Login from "../Login/Login";
-
 import { useNavigate } from "react-router-dom";
-import Selectoptions from "../../components/options/Selectoptions";
 
 function Homepage() {
   const navigate = useNavigate();

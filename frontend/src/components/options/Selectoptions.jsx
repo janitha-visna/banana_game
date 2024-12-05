@@ -1,7 +1,6 @@
 import React from "react";
 import "./selectoptions.scss";
 import { useState } from "react";
-import Game from "../singleplayer/Singleplayer";
 import { useNavigate } from "react-router-dom";
 
 const Selectoptions = () => {
