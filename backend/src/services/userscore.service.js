@@ -1,12 +1,7 @@
 import { UserScore } from "../models/userscore.model.js";
 import { Scoreboard } from "../models/scoreboard.model.js";
 
-/**
- * Adds a user's score to the user_scores collection.
- * @param {String} userId - The ID of the user.
- * @param {Number} score - The score to add.
- * @param {Date} date - The date of the score (optional).
- */
+
 export async function addUserScore(userId, username, score, date = new Date()) {
   try {
     // Ensure date is a valid Date object

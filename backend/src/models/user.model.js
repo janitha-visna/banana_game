@@ -1,4 +1,3 @@
-// models/user.model.js
 import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema(
@@ -19,6 +18,10 @@ const UserSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
+    },
+    imageUrl: {
+      type: String, // URL for the profile image
+      default: "", // Default to an empty string if no image is uploaded
     },
   },
   { timestamps: true }

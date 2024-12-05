@@ -1,25 +1,31 @@
 import React from "react";
 import "./Navbar.css";
-import { useAuth } from "../../context/AuthContext"; // Import AuthContext
+import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 function Navbar() {
-  const { user, logout } = useAuth(); // Get user and logout function from AuthContext
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout(); // Call the logout function
-    navigate("/login"); // Redirect to login page
+    logout();
+    navigate("/login");
+  };
+
+  const handleAvatarClick = () => {
+    navigate("/upload"); // Navigate to the upload route
   };
 
   return (
     <div className="navbar">
       <div className="navbar-left">
-        <img
-          src={user?.profileImage || "/default-profile.png"}
-          alt="User Profile"
-          className="navbar-profile-image"
-        />
+        <div onClick={handleAvatarClick} className="navbar-avatar-clickable">
+          <img
+            src={user?.imageUrl || "/default-profile.png"} // Use the imageUrl field
+            alt="User Profile"
+            className="navbar-profile-image"
+          />
+        </div>
         <span className="navbar-username">
           👋 Hello, Welcome {user?.username || "Guest"}!
         </span>

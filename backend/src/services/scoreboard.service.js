@@ -1,10 +1,6 @@
 import { Scoreboard } from "../models/scoreboard.model.js";
 
-/**
- * Updates the scoreboard if the provided score is the user's highest.
- * @param {String} userId - The ID of the user.
- * @param {Number} score - The new score to potentially update.
- */
+
 export async function updateScoreboard(userId,username, score) {
   try {
     // Check if the user's current score is the highest on record

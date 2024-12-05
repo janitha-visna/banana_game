@@ -3,10 +3,6 @@ import jwt from "jsonwebtoken";
 import User from "../models/user.model.js";
 
 
-/**
- * @function
- * @description Handles user registration logic, including hashing passwords and saving to the database.
- */
 export const registerUser = async (username, email, password) => {
   const hashedPassword = await bcrypt.hash(password, 10); // Hash password
   const newUser = new User({ username, email, password: hashedPassword });
@@ -14,10 +10,7 @@ export const registerUser = async (username, email, password) => {
   await newUser.save(); // Save user to DB
 };
 
-/**
- * @function
- * @description Handles user login logic, including credential validation and token generation.
- */
+
 export const loginUser = async (username, password) => {
   const user = await User.findOne({ username });
 
@@ -40,6 +33,9 @@ export const loginUser = async (username, password) => {
 
   return {
     token,
-    user: {username: user.username }, // Return token and user info
+    user: {
+      username: user.username, // Add the username
+      imageUrl: user.imageUrl, // Add the imageUrl property
+    },
   };
 };
