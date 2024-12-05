@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 import "./Playgame.css";
+import { useAuth } from "../../context/AuthContext";
 
 function Playgame() {
   const navigate = useNavigate(); // Initialize navigate hook
+  const { logout } = useAuth(); // Get logout function from AuthContext
 
   // Function to handle redirection when "User Records" button is clicked
   const handleUserRecordsClick = () => {
@@ -14,8 +16,28 @@ function Playgame() {
     navigate("/selectoption"); // Redirect to /selectoption route
   };
 
-  const handleScoreboard = () =>{
+  const handleScoreboard = () => {
     navigate("/leaderboard");
+  };
+
+  // Function to handle logout
+  const handleLogout = async () => {
+    try {
+      // Clear server-side token if required
+      const response = await fetch("http://localhost:8800/api/auth/logout", {
+        method: "POST",
+        credentials: "include", // Ensures cookies are cleared
+      });
+
+      if (response.ok) {
+        logout(); // Clear user context and local storage
+        navigate("/login"); // Redirect to login page
+      } else {
+        console.error("Failed to log out.");
+      }
+    } catch (error) {
+      console.error("An error occurred during logout:", error);
+    }
   };
 
   return (
@@ -31,6 +53,9 @@ function Playgame() {
       <div className="right-buttons">
         <button className="button" onClick={handlePlayNowClick}>
           Play Now
+        </button>
+        <button className="button" onClick={handleLogout}>
+          Logout
         </button>
       </div>
     </div>
