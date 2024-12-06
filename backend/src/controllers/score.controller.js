@@ -19,7 +19,7 @@ export async function submitscore(req, res) {
     // Use the authenticated user's ID and username from the token
     await addUserScore(req.userId, req.username, score, date);
 
-    // Emit an event for real-time score tracking or notifications
+    // Emit an event for real-time score tracking 
     scoreEvents.emit("scoreSubmitted", req.userId, req.username, score);
 
     return res.status(200).json({ message: "Score submitted successfully" });
